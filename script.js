@@ -11,6 +11,24 @@ const elements = [
         img: "./img/iphone.jfif",
         name: "Iphone",
         price: 1800
+    },
+
+    {
+        img: "./img/chocolate.jpg",
+        name: "Chocolate",
+        price: 10
+    },
+
+    {
+        img: "./img/ps5.jpg",
+        name: "Playstation 5",
+        price: 10
+    },
+
+    {
+        img: "./img/spotify.jpg",
+        name: "Gift Card Spotify",
+        price: 10
     }
 ];
 
