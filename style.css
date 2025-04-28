@@ -1,6 +1,4 @@
 *
-*::before
-*::after
 {
     margin: 0;
     padding: 0;
@@ -63,12 +61,95 @@
 .cart
 {
     width: 30%;
-    height: 100%;
+    height: 95vh;
     background-color: blue;
+    position: absolute;
+    left: 70%;
+    top: 2.5%;
 }
 
 .title
 {
     color: white;
     font-size: 2rem;
+    position: absolute;
+    left: 35%;
+}
+
+.cartProduct
+{
+    width: 90%;
+    height: 25%;
+    background-color: orange;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 3%;
+    padding: 2%;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.cartProduct-img
+{
+    width: 100%;
+    height: 76%;
+}
+
+.cartProduct-name
+{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.cartProduct-price
+{
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.cartProduct-counter
+{
+    width: 40%;
+    height: 15%;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    margin-top: 32%;
+    margin-left: 50%;
+}
+
+.minus
+{
+    border: none;
+}
+
+.number
+{
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.plus
+{
+    border: none;
+}
+
+.buyAll
+{
+    width: 90%;
+    height: 8%;
+    position: absolute;
+    top: 90%;
+    left: 5.5%;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500;
+    background-color: red;
+    border: none;
+}
+
+#buyAll
+{
+    border: none;
 }

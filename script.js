@@ -42,9 +42,80 @@ function InstantiateProducts()
         <img class="img" src="${element.img}">
         <span class="name">${element.name}</span>
         <span class="price">${"R$" + element.price}</span>
-        <button type="button" class="button">Comprar</button>
+        <button onclick="AddToCart('${element.img}', '${element.name}', ${element.price})" class="button">Comprar</button>
         `
     });
+}
+
+const cart = [];
+
+function AddToCart(productImg, productName, productPrice)
+{
+    let existingProduct = cart.find(item => item.name === productName);
+
+    if(existingProduct)
+    {
+        console.log("funcionou");
+        existingProduct.quantity += 1;
+    }
+    else
+    {
+        cart.push({name: productName, price: productPrice, img: productImg, quantity: 1});
+    }
+
+    RenderCart();
+}
+
+function RemoveFromCart(productName) {
+    const productIndex = cart.findIndex(item => item.name === productName);
+    if (productIndex > -1) {
+        if (cart[productIndex].quantity > 1) {
+            cart[productIndex].quantity -= 1;
+        } else {
+            cart.splice(productIndex, 1);
+        }
+    }
+    RenderCart();
+}
+
+function RenderCart()
+{
+    let divCart = document.getElementById("cart");
+
+    if(divCart.classList.contains("noCart"))
+    {
+        divCart.classList.remove("noCart");
+        divCart.classList.add("cart");
+    }
+
+    let title = document.getElementById("title");
+
+    if(title.classList.contains("noTitle"))
+    {
+        title.classList.remove("noTitle");
+        title.classList.add("title");
+        title.innerHTML = "Carrinho"
+    }
+
+    let buyAll = document.getElementById("buyAll");
+
+    if(buyAll.classList.contains("noBuyAll"))
+    {
+        buyAll.classList.remove("noBuyAll");
+        buyAll.classList.add("buyAll");
+        buyAll.innerHTML = "Comprar tudo!"
+    }
+
+    cart.forEach(item => {
+        let cartProduct = document.createElement("div");
+        cartProduct.classList.add("cartProduct");
+        cartProduct.innerHTML = `
+            <img class="cartProduct-img" src="${item.img}">
+            <h1 class="cartProduct-name">${item.name}</h1>
+            <span class="cartProduct-price">${item.price}</span>
+        `;
+        divCart.appendChild(cartProduct);
+    })
 }
 
 InstantiateProducts();
